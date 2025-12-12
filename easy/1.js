@@ -34,26 +34,7 @@
 
 // --- OPTIAMAL --- //
 
-// function _twoSum(nums, target) {
-//   const pairs = new Map();
-
-//   for (let i = 0; i < nums.length; i++) {
-//     pairs.set(nums[i], i);
-//   }
-
-//   for (const [key, _] of pairs) {
-//     const numToGet = target - key;
-//     if (pairs.get(numToGet) !== undefined) {
-//       return [pairs.get(key), pairs.get(numToGet)];
-//     }
-//   }
-
-//   return -1;
-// }
-
-// console.log(_twoSum([2, 7, 11, 15], 9));
-
-function __twoSum(nums, target) {
+function twoSum(nums, target) {
   const map = new Map();
 
   for (let i = 0; i < nums.length; i++) {

@@ -15,7 +15,7 @@ function isAnagram(s, t) {
   }
 
   for (const each of sm) {
-    if (each[1] !== tm.get(each[1])) return false;
+    if (each[1] !== tm.get(each[0])) return false;
   }
 
   return true;
