@@ -35,19 +35,19 @@
 // --- OPTIAMAL --- //
 
 function twoSum(nums, target) {
-  const map = new Map();
+	const map = new Map();
 
-  for (let i = 0; i < nums.length; i++) {
-    const numToAdd = target - nums[i];
-    if (map.has(numToAdd)) {
-      return [map.get(numToAdd), i];
-    }
-    map.set(nums[i], i);
-  }
+	for (let i = 0; i < nums.length; i++) {
+		const numToAdd = target - nums[i];
+		if (map.has(numToAdd)) {
+			return [map.get(numToAdd), i];
+		}
+		map.set(nums[i], i);
+	}
 
-  return -1;
+	return -1;
 }
 
-console.log(__twoSum([2, 7, 11, 15], 9));
-console.log(__twoSum([4, 5, 6], 10));
-console.log(__twoSum([5, 5], 10));
+console.log(twoSum([2, 7, 11, 15], 9));
+console.log(twoSum([4, 5, 6], 10));
+console.log(twoSum([5, 5], 10));
