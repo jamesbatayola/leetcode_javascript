@@ -28,17 +28,51 @@ class Solution {
 	 * @param {number} k
 	 * @return {number[]}
 	 */
+	// topKFrequent(nums, k) {
+	// 	const map = new Map();
+
+	// 	for (let num of nums) {
+	// 		map.set(num, map.get(num) + 1 || 1);
+	// 	}
+
+	// 	let sortNums = [...map].sort((a, b) => a[1] - b[1]).map((x) => x[0]);
+
+	// 	const res = sortNums.slice(sortNums.length - k);
+
+	// 	return res;
+	// }
+
+	// ----- NEETCODE SOLUTION ----- //
 	topKFrequent(nums, k) {
 		const map = new Map();
 
-		for (let num of nums) {
-			map.set(num, map.get(num) + 1 || 1);
+		for (let n of nums) {
+			map.set(n, map.get(n) + 1 || 1);
 		}
 
-		let sortNums = [...map].sort((a, b) => a[1] - b[1]).map((x) => x[0]);
+		// Create bucket array
+		const arr = [];
+		for (let i = 0; i < nums.length + 1; i++) {
+			arr[i] = [];
+		}
 
-		const res = sortNums.slice(sortNums.length - k);
+		for (let [k, v] of map) {
+			arr[v].push(k);
+		}
+
+		const res = [];
+
+		for (let i = arr.length - 1; i > 0; i--) {
+			if (res.length === k) break;
+			if (!arr[i].length) continue;
+			res.push(...arr[i]);
+		}
 
 		return res;
 	}
 }
+
+const s = new Solution();
+
+console.log(s._topKFrequent([1, 2, 2, 3, 3, 3], 2));
+console.log(s._topKFrequent([7, 7], 1));
