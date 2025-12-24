@@ -77,13 +77,26 @@ class Solution {
 
 		return true;
 	}
+
+	// NeetCode Optimal Solution //
+	_validWordSquare(words) {
+		for (let rowPos = 0; rowPos < words.length; rowPos++) {
+			for (let colPos = 0; colPos < words[rowPos].length; colPos++) {
+				if (colPos >= words.length || rowPos >= words[colPos].length || words[rowPos][colPos] !== words[colPos][rowPos]) {
+					return false;
+				}
+			}
+		}
+
+		return true;
+	}
 }
 
 const s1 = new Solution();
 
-console.log(s1.validWordSquare(["abcd", "bnrt", "crmy", "dtye"])); // true
-console.log(s1.validWordSquare(["abcd", "bnrt", "crm", "dt"])); // true
-console.log(s1.validWordSquare(["ball", "area", "read", "lady"])); // false
-console.log(s1.validWordSquare(["abc", "b"])); // false
+console.log(s1._validWordSquare(["abcd", "bnrt", "crmy", "dtye"])); // true
+console.log(s1._validWordSquare(["abcd", "bnrt", "crm", "dt"])); // true
 
-console.log(s1.validWordSquare(["abc", "bde", "cefg"])); // false
+console.log(s1._validWordSquare(["ball", "area", "read", "lady"])); // false
+console.log(s1._validWordSquare(["abc", "b"])); // false
+console.log(s1._validWordSquare(["abc", "bde", "cefg"])); // false
