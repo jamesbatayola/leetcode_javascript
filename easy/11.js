@@ -21,6 +21,8 @@ class Solution {
 	 * @param {number[]} arr
 	 * @return {number[]}
 	 */
+
+    // MY SOLUTION
 	replaceElements(arr) {
 		const res = [];
 
