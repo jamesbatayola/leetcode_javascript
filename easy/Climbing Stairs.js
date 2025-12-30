@@ -26,6 +26,8 @@
  * @param {number} n
  * @return {number}
  */
+
+// Memoization Dynamiic Programming
 function climbStairs(n) {
 	const map = new Map();
 
@@ -43,6 +45,20 @@ function climbStairs(n) {
 	}
 
 	return rec(0);
+}
+
+// Bottom-up Dynamic Programming
+function _climbStairs(n) {
+	let one = 1,
+		two = 1;
+
+	for (let i = 0; i < n - 1; i++) {
+		const temp = one;
+		one += two;
+		two = temp;
+	}
+
+	return one;
 }
 
 console.log(climbStairs(5));
